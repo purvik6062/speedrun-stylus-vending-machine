@@ -31,8 +31,8 @@ Then download the challenge to your computer and install dependencies by running
 > ⚠️ IMPORTANT: Please make sure to run the below commands through WSL only. In PowerShell, you'll get an error because some files are not supported on Windows.
 
 ```sh
-git clone https://github.com/abhi152003/speedrun-rust
-cd speedrun-rust
+git clone https://github.com/abhi152003/speedrun_stylus
+cd speedrun_stylus
 git checkout vending-machine
 yarn install
 ```
@@ -42,7 +42,7 @@ yarn install
 Contracts will be deployed through the cargo stylus command using the pre-funded account's private key so users can perform any transaction through the frontend while interacting with the contract.
 
 ```sh
-cd speedrun-rust # if not done
+cd speedrun_stylus # if not done
 cd packages
 cd cargo-stylus
 cd vending_machine
@@ -92,7 +92,7 @@ Shell scripts created in Windows often have `CRLF` line endings, which cause iss
 > Then in a second WSL terminal window, you can run below commands to start your 📱 frontend:
 
 ```sh
-cd speedrun-rust ( if not done )
+cd speedrun_stylus ( if not done )
 cd packages ( if not done )
 cd nextjs
 yarn run dev OR yarn dev
@@ -137,7 +137,7 @@ The interface allows you to:
 
 💼 Take a quick look at your deploy script `run-dev-node.sh` in `speedrun-rust/packages/cargo-stylus/vending_machine/run-dev-node.sh`.
 
-📝 If you want to edit the frontend, navigate to `speedrun-rust/packages/nextjs/app` and open the specific page you want to modify. For instance: `/debug/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
+📝 If you want to edit the frontend, navigate to `speedrun_stylus/packages/nextjs/app` and open the specific page you want to modify. For instance: `/debug/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
 
 ---
 
@@ -149,7 +149,7 @@ The interface allows you to:
 
 ![image](https://github.com/user-attachments/assets/d84c4d6a-be20-426b-9c68-2c021caefb29)
 
-The above command will automatically deploy the contract functions written inside `speedrun-rust/packages/cargo-stylus/vending_machine/src/lib.rs`
+The above command will automatically deploy the contract functions written inside `speedrun_stylus/packages/cargo-stylus/vending_machine/src/lib.rs`
 
 > This local account will deploy your contracts, allowing you to avoid entering a personal private key because the deployment happens using the pre-funded account's private key.
 
@@ -162,18 +162,12 @@ The above command will automatically deploy the contract functions written insid
 🚀 Deploy your NextJS App
 
 ```shell
-yarn vercel
+vercel
 ```
 
 > Follow the steps to deploy to Vercel. Once you log in (email, github, etc), the default options should work. It'll give you a public URL.
 
 > If you want to redeploy to the same production URL you can run `yarn vercel --prod`. If you omit the `--prod` flag it will deploy it to a preview/test URL.
-
-⚠️ Run the automated testing function to make sure your app passes
-
-```shell
-yarn test
-```
 
 ---
 
