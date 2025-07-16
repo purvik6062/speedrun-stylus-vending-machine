@@ -24,7 +24,15 @@ export const RainbowKitCustomConnectButton = () => {
               className="tooltip tooltip-bottom tooltip-primary relative" 
               data-tip={address?.slice(0, 20) + "..." + address?.slice(-8)}
             >
-              <span className="text-sm text-base-content/70 hover:text-base-content cursor-pointer">
+              <span
+                className="text-sm text-base-content/70 hover:text-base-content cursor-pointer"
+                onClick={() => {
+                  if (address) {
+                    navigator.clipboard.writeText(address);
+                  }
+                }}
+                title="Click to copy address"
+              >
                 {address?.slice(0, 6)}...{address?.slice(-4)}
               </span>
               <style jsx>{`

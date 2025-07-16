@@ -97,11 +97,19 @@ Shell scripts created in Windows often have `CRLF` line endings, which cause iss
 
 > Then in a second WSL terminal window, you can run below commands to start your 📱 frontend:
 
+> ⚠️ **Before running the frontend:**
+> 
+>    Go to the `packages/nextjs` directory:
+>    ```bash
+>    cd packages/nextjs
+>    cp .env.example .env
+>    ```
+
+
 ```sh
-cd speedrun_stylus ( if not done )
-cd packages ( if not done )
-cd nextjs
+cd packages/nextjs
 yarn run dev OR yarn dev
+
 ```
 
 📱 Open [http://localhost:3000](http://localhost:3000) to see the app.
@@ -174,6 +182,47 @@ vercel
 > Follow the steps to deploy to Vercel. Once you log in (email, github, etc), the default options should work. It'll give you a public URL.
 
 > If you want to redeploy to the same production URL you can run `yarn vercel --prod`. If you omit the `--prod` flag it will deploy it to a preview/test URL.
+
+---
+
+## 🚀 Deploying to Arbitrum Sepolia
+
+If you want to deploy your Vending Machine contract to the Arbitrum Sepolia testnet, follow these steps:
+
+1. **Run the Sepolia Deployment Script**
+
+   Export your private key in the terminal :
+   ```bash
+   export PRIVATE_KEY=your_private_key_of_your_ethereum_wallet
+   ```
+
+   Open your terminal and run:
+   ```bash
+   cd packages/cargo-stylus/vending_machine
+   bash run-sepolia-deploy.sh
+   ```
+   This will deploy your contract to Arbitrum Sepolia and output the contract address and transaction hash.
+
+2. **Configure the Frontend for Sepolia**
+
+   - Go to the `packages/nextjs` directory:
+     ```bash
+     cd packages/nextjs
+     cp .env.example .env
+     ```
+   - Open the `.env` file and set the following variables:
+     ```env
+     NEXT_PUBLIC_RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
+     NEXT_PUBLIC_PRIVATE_KEY=your_private_key_of_your_ethereum_wallet
+     ```
+     Replace `your_private_key_of_your_ethereum_wallet` with your actual Ethereum wallet private key (never share this key publicly).
+
+3. **Start the Frontend**
+
+   ```bash
+   yarn run dev
+   ```
+   Your frontend will now connect to the Arbitrum Sepolia network and interact with your deployed contract.
 
 ---
 

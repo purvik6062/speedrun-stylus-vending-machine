@@ -1,0 +1,8 @@
+{
+  "network": "nitro-dev",
+  "cache_manager_address": "0x11B57FE348584f042E436c6Bf7c3c3deF171de49",
+  "contract_address": "0xa6e41ffd769491a42a6e5ce453259b93983a22ef",
+  "transaction_hash": "0x771644b5c53d0bc9ffba3e0e4f0c75a421a30b37ec6f965c6e2ad5995bddaaf9",
+  "rpc_url": "http://127.0.0.1:8547",
+  "deployment_time": "2025-07-16T05:26:16Z"
+}

@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { IVendingMachine } from "./IVendingMachine";
 import { ethers } from "ethers";
 
-const contractAddress = "0xa6e41ffd769491a42a6e5ce453259b93983a22ef"; // Get this from run-dev-node.sh output
-const provider = new ethers.JsonRpcProvider("http://localhost:8547/");
-const privateKey = "0xb6b15c8cb491557369f3c7d2c287b053eb229daa9c22138887752191c9520659";
+const contractAddress = "0x6d94626b873bd42d16ee31ea7ca0a2b25104ef9a"; // Get this from run-dev-node.sh output
+const provider = new ethers.JsonRpcProvider(process.env.NEXT_PUBLIC_RPC_URL || "");
+const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
 const signer = new ethers.Wallet(privateKey, provider);
 const contract = new ethers.Contract(contractAddress, IVendingMachine, signer);
 
@@ -279,7 +279,7 @@ export default function DebugContracts() {
               <div className="bg-white/60 dark:bg-blue-900/20 rounded-xl p-4 border border-slate-200 dark:border-blue-500/10">
                 <div className="text-sm font-medium text-slate-500 dark:text-blue-300 mb-1">Network</div>
                 <div className="font-mono text-sm text-slate-700 dark:text-blue-100">
-                  Local Testnet (http://localhost:8547/)
+                  Local Testnet ({process.env.NEXT_PUBLIC_RPC_URL})
                 </div>
               </div>
               
