@@ -33,7 +33,7 @@ echo "✅ Connected to Arbitrum Sepolia."
 
 # Deploy the vending machine contract
 echo "🚀 Deploying Vending Machine contract using cargo stylus..."
-deploy_output=$(cargo stylus deploy -e "$SEPOLIA_RPC_URL" --private-key "$PRIVATE_KEY" 2>&1)
+deploy_output=$(cargo stylus deploy -e "$SEPOLIA_RPC_URL" --private-key "$PRIVATE_KEY" --no-verify 2>&1)
 
 # Check deployment success
 if [[ $? -ne 0 ]]; then
