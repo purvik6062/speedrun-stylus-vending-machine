@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { IVendingMachine } from "./IVendingMachine";
 import { ethers } from "ethers";
 
-const contractAddress = "0x17b615625d70cf5ff5b1aa83b3ac89f45de5a99f"; // Get this from run-dev-node.sh output
+const contractAddress = "0x711e822de476e2b6c8ceb9b231dde620ae7da243"; // Get this from run-dev-node.sh output
 const provider = new ethers.JsonRpcProvider(process.env.NEXT_PUBLIC_RPC_URL || "");
 const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY || "";
 const signer = new ethers.Wallet(privateKey, provider);
@@ -39,7 +39,7 @@ export default function DebugContracts() {
         message: error.reason || error.message || "Transaction failed",
       });
     }
-    
+
     setTimeout(() => {
       setTxStatus({ status: "none", message: "" });
     }, 5000);
@@ -61,7 +61,7 @@ export default function DebugContracts() {
       },
       "Checking balance...",
       `Successfully retrieved balance for ${userAddress}`,
-      "checkBalance"
+      "checkBalance",
     );
   };
 
@@ -84,7 +84,7 @@ export default function DebugContracts() {
       },
       "Giving cupcake...",
       `Successfully gave a cupcake to ${userAddress}`,
-      "giveCupcake"
+      "giveCupcake",
     );
   };
 
@@ -109,9 +109,7 @@ export default function DebugContracts() {
           <div className="flex justify-center mb-10">
             <div className="bg-slate-100/80 dark:bg-blue-900/40 rounded-2xl px-8 py-6 shadow-xl border border-slate-200 dark:border-blue-500/20 backdrop-blur-md text-center">
               <div className="text-lg font-medium text-slate-600 dark:text-blue-200 mb-1">Current Balance</div>
-              <div className="text-5xl font-bold text-pink-500 dark:text-pink-400">
-                {balance} 🧁
-              </div>
+              <div className="text-5xl font-bold text-pink-500 dark:text-pink-400">{balance} 🧁</div>
             </div>
           </div>
         )}
@@ -267,27 +265,23 @@ export default function DebugContracts() {
           {/* Contract Info Card */}
           <div className="bg-slate-50 dark:bg-gray-800/80 rounded-2xl p-6 border border-slate-200 dark:border-blue-500/20 mt-8">
             <h3 className="text-xl font-semibold text-slate-700 dark:text-blue-200 mb-4">Contract Information</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-white/60 dark:bg-blue-900/20 rounded-xl p-4 border border-slate-200 dark:border-blue-500/10">
                 <div className="text-sm font-medium text-slate-500 dark:text-blue-300 mb-1">Contract Address</div>
-                <div className="font-mono text-sm text-slate-700 dark:text-blue-100 break-all">
-                  {contractAddress}
-                </div>
+                <div className="font-mono text-sm text-slate-700 dark:text-blue-100 break-all">{contractAddress}</div>
               </div>
-              
+
               <div className="bg-white/60 dark:bg-blue-900/20 rounded-xl p-4 border border-slate-200 dark:border-blue-500/10">
                 <div className="text-sm font-medium text-slate-500 dark:text-blue-300 mb-1">Network</div>
                 <div className="font-mono text-sm text-slate-700 dark:text-blue-100">
                   Local Testnet ({process.env.NEXT_PUBLIC_RPC_URL})
                 </div>
               </div>
-              
+
               <div className="md:col-span-2 bg-white/60 dark:bg-blue-900/20 rounded-xl p-4 border border-slate-200 dark:border-blue-500/10">
                 <div className="text-sm font-medium text-slate-500 dark:text-blue-300 mb-1">Cupcake Cooldown</div>
-                <div className="font-mono text-sm text-slate-700 dark:text-blue-100">
-                  5 seconds between cupcakes
-                </div>
+                <div className="font-mono text-sm text-slate-700 dark:text-blue-100">5 seconds between cupcakes</div>
               </div>
             </div>
           </div>
